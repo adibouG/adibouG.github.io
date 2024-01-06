@@ -25,12 +25,7 @@ loader.load(
         console.log (gltf)
         scene.add( gltf.scene );
 
-      /*gltf.animations; // Array<THREE.AnimationClip>
-      gltf.scene; // THREE.Group
-      gltf.scenes; // Array<THREE.Group>
-      gltf.cameras; // Array<THREE.Camera>
-      gltf.asset; // Object
-  */
+
         renderer.render(scene, camera);
   },
   // called while loading is progressing
