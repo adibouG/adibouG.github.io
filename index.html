@@ -1,70 +1,208 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Adrien Gonzalez - iAdi</title>
-        <script type="importmap">
-            {
-              "imports": {
-                "three": "https://unpkg.com/three@v0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@v0.160.0/examples/jsm/"
-              }
-            }
-          </script>
-		<style>
-			body { margin: 0; }
-		</style>https://github.com/adibouG/adibouG.github.io/edit/main/index.html
-	</head>
-	<body>
-    <div style="position: relative;">
-        <div style="position: absolute;" id="canvas_container">
-            <button id="toggleRotate">rotation</button>
-            <canvas id="canvas"></canvas>
-        </div>
-        <div class="overlay" id="overlayText" style="position: absolute; background: none; top: 0; left: 0; color: white;" >
-          <div styles="position: absolute; background: none; top: 0; left: 0; color: white;">
-              <section>
-            <h2>Projects:</h2>
-            <ul>
-            <li>file encrypt/decrypt service <a href="https://github.com/adibouG/vaultservice" >vaultservice</a></li>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iADi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Adrien Gonzalez</h1>
+    <div class="container"> 
+      <div class="header"> </div>
+      <div class="body"> 
 
-            <li>Text web lookup / web browsing application <a href="https://github.com/adibouG/WebQuickLookup" >WebQuickLookup</a></li>
-            <li>Aiptek graphic Tablet - Driver Setting Interface for Linux <a href="https://github.com/adibouG/aiptekTabletSettingApp" >aiptekTabletSettingApp</a></li>
-            <li>Small http web server for local usage base <a href="https://github.com/adibouG/httplocalserver" >httplocalserver</a></li>
-            <li>login server <a href="https://github.com/adibouG/loginServer" >loginServer</a></li>
-            <li>online checkin WPA (Proto/Demo version build for Enzo)  
-              <a href="https://github.com/adibouG/onlineChekin" >frontend/client WPA </a> & <a href="https://github.com/adibouG/onlineCheckInBackend" >backend/server</a></li>
-            <li>hippik contest tracking web app 
-              <a href="https://github.com/adibouG/hippik_POF_webClient" >frontend/client app </a> & <a href="https://github.com/adibouG/hippik_POF_backendAPI" >backend/server</a></li>
-            
-            <li>ChatByMap  mobile Bluetooth  chat app <a href="https://github.com/adibouG/ChatByMap" >ChatByMap</a></li>
-          </ul>
-            </section> 
-            <section> 
-          <h3>Actual topics of interest:</h3>
-        <ul>
-         <li>
-           openCv / computer vision 
-          </li>
-          <li>
-        tensorflow / ML
-      </li>
         
-        <li>
-          three.js, babylonejs, unity / 3D 
-        </li>
-        <li>
-            ...
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Profile</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Work</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="project-tab" data-bs-toggle="tab" data-bs-target="#project-tab-pane" type="button" role="tab" aria-controls="project-tab-pane" aria-selected="false">Project</button>
           </li>
         </ul>
-        </section>
+     
+        <div class="tab-content" id="myTabContent">
+          
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+           
+              <div>
+
+                <div class="card" style="width: 18rem;">  
+                  <div class="card-header">Software developer</div>
+                  <div class="card-img-top" style="border-radius:50%;overflow: hidden;">
+                    <img src="static/lkdim_id.jpeg"  alt="...">
+                  </div> 
+                  <div class="card-body">
+                    <h5 class="card-title">Adrien Gonzalez</h5>
+                    <p class="card-text">Creative software engineering with valuable experiences as IT professional and developer. Feel free to contact me with your projects to see how I could help you adding value, moving forward and achieve it</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Git</li>
+                    <li class="list-group-item">LinkedIn</li>
+                    <li class="list-group-item">Resume</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link">See projects</a>
+                    <a href="#" class="card-link">Contact</a>
+                  </div>
+                </div>
+            </div>
+
+            <div class="card-group">
+
+              <div class="card">
+                <img src="static/posteMobile.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">La Poste Mobile</h5>
+                  <p class="card-text">.</p>
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+              <div class="card">
+                <img src="static/atlassian.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Atlassian</h5>
+                  <p class="card-text">.</p>
+                  <p class="card-text"><small class="text-body-secondary"></small></p>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="static/enzosystems_logo.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Enzosystems</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-body-secondary"></small></p>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <img src="static/Medis_logo-tagline-2020-1.svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Medis</h5>
+                  <p class="card-text">.</p>
+                  <p class="card-text"><small class="text-body-secondary">/small></p>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <img src="static/truekinetix_logo.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Truekinetix</h5>
+                  <p class="card-text"></p>
+                  <p class="card-text"><small class="text-body-secondary"></small></p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">See more...</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-body-secondary">Experience Resume</small></p>
+                </div>
+              </div>
+
+          </div>
         </div>
 
-         
 
-        </div>
-        </div>
-		    <script type="module" src="/main.js"></script>
-	</body>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+            <div class="card-group">
+              
+
+              <div class="card">
+        
+                <div class="card-body">
+                  <h5 class="card-title">online service to encrypt and decrypt files</h5>
+                  <p class="card-text">A NodeJS service for encrypted file generation and their decryption to use through a web interface.</p>
+                  <p class="card-text"><small class="text-body-secondary"><a href="https://github.com/adibouG/vaultservice">vaultservice</a></small></p>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Text Selection weblookup</h5>
+                  <p class="card-text">A C++/Qt application to search/lookup a text selection on wikipedia or other website and display the result</p>
+                  <p class="card-text"><small class="text-body-secondary"><a href="https://github.com/adibouG/WebQuickLookup" >WebQuickLookup</a></small></p>
+                </div>
+              </div>
+
+
+              <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Driver Setting Interface for old Graphical Tablet on linux</h5>
+                  <p class="card-text">C++/Qt Application to change the settings of old usb graphic tablet devices on Linux.</p>
+                  <p class="card-text"><small class="text-body-secondary"> <a href="https://github.com/adibouG/aiptekTabletSettingApp" >GraphTabletSettingApp</a></small></p>
+                </div>
+              </div>
+
+
+
+
+              <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Driver Setting Interface for old Graphical Tablet on linux</h5>
+                  <p class="card-text">C++/Qt Application to change the settings of old usb graphic tablet devices on Linux.</p>
+                  <p class="card-text"><small class="text-body-secondary"> <a href="https://github.com/adibouG/aiptekTabletSettingApp" >GraphTabletSettingApp</a></small></p>
+                </div>
+              </div>
+
+
+
+              <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">See more...</h5>
+                  <p class="card-text"><small class="text-body-secondary"> <a href="https://github.com/adibouG">Git</a></small></p>
+                  <p class="card-text"><small class="text-body-secondary"> <a href="https://github.com/adibouG">Details</a></small></p>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+
+
+        
+           <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+
+            </div>
+
+
+          <div class="tab-pane fade" id="project-tab-pane" role="tabpanel" aria-labelledby="project-tab" tabindex="0">
+            <div style="position: relative;">
+              <div style="position: absolute;" id="canvas_container">
+                <button id="toggleRotate">rotation</button>
+                <canvas id="canvas"></canvas>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
+
