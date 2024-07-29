@@ -18,6 +18,17 @@
     body { margin: 0;
           background-color: lightgray; 
         }
+
+        .blink {
+                animation: blinker 1.5s linear infinite;
+                color: red;
+                font-family: sans-serif;
+            }
+            @keyframes blinker {
+                50% {
+                    opacity: 0;
+                }
+            }
   </style>
   </head>
   <body>
@@ -51,7 +62,7 @@
               <div>
                 <div class="card" >  
                   <div class="card-header">
-                    <h3>Adrien Gonzalez</h3>
+                    <h3>Adrien Gonzalez <span class="blink">!! site under construction !!</span></h3>
                   </div>
                   <div class="card-img-top" style="border-radius:50%;overflow: hidden;   width: fit-content;">
                     <img src="static/lkdim_id.jpeg"  alt="...">
