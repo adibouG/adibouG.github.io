@@ -224,7 +224,7 @@
     url.searchParams = formData;
     var head = new Headers();
     head.append('Content-Type', 'application/x-www-form-urlencoded');
-    head.append('Access-Control-Allow-Origin', 'https://adiboug.github.io');
+    head.append('Access-Control-Allow-Origin', 'https://adiboug.github.io,    https://docs.google.com/forms/d/e/1FAIpQLScUL9J5qW48QJQE-hA9GTgvZkT8oRwnVH6hLOcoLu1nWqzc7g/viewform')
     fetch(url, { headers: head })
     .then(function(response) {
       if (response.ok) {
