@@ -181,18 +181,18 @@
          <!-- contact  tab -->
          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
           
-              <form id="contact-form" >  
+              <form id="contact-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf9wDZp5wIjxkRj0sJbLJyB0xY9p0w2h0f0QyfDmVZbN0n4w/formResponse">  
                 <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" name="2005620554" placeholder="Enter your name">
+                  <input type="text" class="form-control" id="name" name="entry.2005620554" placeholder="Enter your name">
                 </div>
                 <div class="form-group">
                   <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" name="1045781291" placeholder="Enter your email">
+                  <input type="email" class="form-control" id="email" name="entry.1045781291" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
                   <label for="service">contact reason</label>
-                  <select class="form-control" id="service" name="1065046570">
+                  <select class="form-control" id="service" name="entry.1065046570">
                     <option value="">Select a service</option>
                     <option value="application-development">Application Development</option>
                     <option value="consultancy">Consultancy</option>
@@ -202,7 +202,7 @@
                 </div>
                 <div class="form-group">
                   <label for="message">Message</label>
-                  <textarea class="form-control" id="message" name="839337160" rows="3" placeholder="Enter your message"></textarea>
+                  <textarea class="form-control" id="message" name="entry.839337160" rows="3" placeholder="Enter your message"></textarea>
                   
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -215,16 +215,16 @@
     var service = document.getElementById('service').value;
     var message = document.getElementById('message').value;
 
-    var formData = new URLSearchParams();
-    formData.append('2005620554', name);
-    formData.append('1045781291', email);
-    formData.append('1065046570', service);
-    formData.append('839337160', message);
-    var url = new URL('https://docs.google.com/forms/d/e/1FAIpQLScUL9J5qW48QJQE-hA9GTgvZkT8oRwnVH6hLOcoLu1nWqzc7g/formResponse');
+    var formData = new FormData();
+    formData.append('entry.2005620554', name);
+    formData.append('entry.1045781291', email);
+    formData.append('entry.1065046570', service);
+    formData.append('entry.839337160', message);
+    var url = new URL('https://docs.google.com/forms/d/e/1FAIpQLScUL9J5qW48QJQE-hA9GTgvZkT8oRwnVH6hLOcoLu1nWqzc7g/formResponse')
     url.searchParams = formData;
     var head = new Headers();
-    head.append('Content-Type',  'application/x-www-form-urlencoded');
-    head.append('Access-Control-Allow-Origin', 'https://adiboug.github.io, https://docs.google.com/forms')
+    head.append('Content-Type', 'application/x-www-form-urlencoded');
+    head.append('Access-Control-Allow-Origin', 'https://adiboug.github.io, https://docs.google.com/forms   ')
     fetch(url, 'POST', { headers: head })
     .then(function(response) {
       if (response.ok) {
