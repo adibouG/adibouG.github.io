@@ -195,7 +195,7 @@
 
          <!-- contact  tab -->
          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-          
+          <script>var submitted=false;</script>
               <form id="contact-form" method="post" target="hidden_iframe" onsubmit="submitted=true;" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScUL9J5qW48QJQE-hA9GTgvZkT8oRwnVH6hLOcoLu1nWqzc7g/formResponse">  
                 <div class="form-group">
                   <label for="name">Name</label>
@@ -222,9 +222,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form> 
-              <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+              <iframe name="hidden_iframe" id="hidden_iframe" style="display:contents;" onload="if(submitted) {}"></iframe>
      <script>
-     var submitted=false;
+
      document.getElementById('contact-form').addEventListener('submit', function(event) {
       
       
