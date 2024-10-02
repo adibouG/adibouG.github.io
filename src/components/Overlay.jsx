@@ -91,7 +91,7 @@ const Overlay = props => {
 
 </div>
 
-<button type="submit" className="btn btn-primary">Submit</button>
+<button type="submit" className="btn">Submit</button>
 
 </form> 
 
