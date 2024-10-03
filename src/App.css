@@ -1,6 +1,8 @@
 
 #root {
-  max-width: 1280px;
+  
+  height: 100%;
+  width: 100%;
   text-align: center;
 }
 #app {
@@ -84,6 +86,11 @@ button:hover {
   background-color: rgba(255,  255, 255, 1);
   cursor: pointer;
 }
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
 @keyframes blinker {
 
   50% {

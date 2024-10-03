@@ -1,13 +1,35 @@
-import React from 'react'
-import { Scroll } from '@react-three/drei'
+import React, {useState} from 'react'
+import { Scroll, useScroll } from '@react-three/drei'
 import Section from './Section'
+import { useFrame } from '@react-three/fiber'
 
 const Overlay = props => {
+
+  const styles = {
+      width: '100vw',
+    } 
+
+const scroll = useScroll()
+const [firstSectionOpacity, setFirstSectionOpacity] = React.useState(1)
+const [secondSectionOpacity, setSecondSectionOpacity] = React.useState(1)
+const [thirdSectionOpacity, setThirdSectionOpacity] = React.useState(1)
+const [fourthSectionOpacity, setFourthSectionOpacity] = React.useState(0)
+
+
+useFrame((state, delta) => {
+  setFirstSectionOpacity(1 - scroll.range(0, 1/4))
+  setSecondSectionOpacity(scroll.curve(1/4, 1/4))
+  setThirdSectionOpacity(scroll.curve(2/4, 1/4))
+  setFourthSectionOpacity(scroll.curve(3/4, 1/4))
+})
+
+console.log(firstSectionOpacity, secondSectionOpacity)
+
   return (
     <Scroll html>
 
-    <div className='overlay'>
-    <Section> 
+    <div style={styles}>
+    <Section opacity={firstSectionOpacity}> 
       <h1 className='title'>i@d</h1>
       <p>
 
@@ -22,13 +44,13 @@ const Overlay = props => {
     
       <p className='text'> I can help designing your projects and building your applications, I can help with your ideas and collaborate to your projects</p>
       </Section>
-    <Section> 
+    <Section right opacity={secondSectionOpacity}> 
     <h2 > About me</h2>
       <p>
       From my background and experiences, in art, Webdesign and multimedia production, in IT production, as functional and technical analyst, analyst programmer, this path led me to become focus and specialize in software development amd emgineering. I have gathered knowledge that I use and share to design and build solutions. </p>
     </Section>
     
-    <Section> 
+    <Section opacity={thirdSectionOpacity}> 
       <h2 > Experience </h2>
       <div className='timeLine'></div>
       <div className='time'> 
@@ -59,35 +81,26 @@ const Overlay = props => {
       <p><a href="https://linkedin.com/in/adrien-gonzalez-3370ba50">my LinkedIn</a></p>
       </div>
     </Section>
-    <Section> 
+    <Section right opacity={fourthSectionOpacity}> 
       <h2 className='title'> Contact </h2>
    
                 <form id="contact-form" method="post"  action="https://usebasin.com/f/560fd38666ff">  
 
 <div className="form-group">
-
-  <label htmlFor="name">Name</label>
-
-  <input type="text" required class="form-control" id="name" name="entry.2005620554" placeholder="Enter your name" />
-
+  <input type="text" required  className='form-control'
+  id="name" name="entry.2005620554" 
+  placeholder="Enter your name" />
 </div>
-
 <div className="form-group">
-
-  <label htmlFor="email">Email address</label>
-
-  <input type="email" required class="form-control" id="email" name="entry.1045781291" 
-  placeholder="Enter your email "/>
-
+  <input type="email" required className="form-control" 
+  id="email" name="entry.1045781291" 
+  placeholder="Enter your email"/>
 </div>
-
-
 <div className="form-group">
-
-  <label htmlFor="message">Message</label>
-
-  <textarea className="form-control" id="message" name="entry.839337160" rows="3" placeholder="Enter your message"></textarea>
-
+  <textarea className="form-control" id="message" 
+  name="entry.839337160" rows="3" 
+  placeholder="Enter your message">
+  </textarea>
 
 </div>
 

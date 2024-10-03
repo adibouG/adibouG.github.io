@@ -5,10 +5,13 @@ Command: npx gltfjsx@6.5.2 ./src/assets/menuScene2.glb --shadows
 
 import React, {useEffect,useLayoutEffect, useRef} from 'react'
 import { useFrame, useGraph } from '@react-three/fiber'
-import { useGLTF, useScroll } from '@react-three/drei'
+import { useCamera, useGLTF, useScroll } from '@react-three/drei'
 import { SkeletonUtils } from 'three-stdlib'
 import gsap from 'gsap'
 import  menu2 from '../assets/menuScene2.glb'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+
 export function Menu(props) {
   const { scene } = useGLTF(menu2)
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
@@ -19,10 +22,27 @@ export function Menu(props) {
   const expRef = useRef()
   const contactRef = useRef()
   const groupRef = useRef()
+
   const lightRef = useRef()
+
   const tl = useRef()
+  const is = useRef(false)
+
   const scroll = useScroll()
- // const scrollRef = useScroll()
+  
+  const moveCamera = (x,y,z) => {
+  
+    useCamera((state) => {
+
+    state.orthographic = true
+    state.zoom = 0.5
+    state.position.set(x,y,z)
+    state.update()  
+  }
+)
+  }
+
+
   useEffect(() => {
     clone.traverse((child) => {
       if (child.isMesh) {
@@ -30,32 +50,39 @@ export function Menu(props) {
         child.receiveShadow = true
       }
     })
+    }, [clone])
+
     
-    scrollTo(0, 0)
-     tl.current = gsap.timeline({
-       defaults: {
-         duration: 4, fadeIn: 1, ease: "power1.inOut",
-       }
-     })
-    gsap.from(groupRef.current.position, {
+ 
+  useEffect(() => {
+    
+    
+   // const ctx = gsap.context((s) => {
+
+   //   if (!tl.current) tl.current = gsap.timeline()
+     
+     const tl1=gsap.timeline()
+     tl1.from(groupRef.current.position, {
       duration : 3,
       z: 20,
     },0 )
-  
-    // gsap.from(lightRef.current, {
-    //   duration : 2,
-    //   intensity: 0,
-    // }, )
-    // tl.current = null
+    .to(groupRef.current.position, {
+      duration : 1,
+      x:  2.9,
+      y:  0,
+      ease: "power3.inOut",
+      }, 2 )
+    
+    }, [])
 
-    }, [clone])
-
+    
     useFrame((state, delta, frame) => {
 
       //tl.current.progress()
-      if (tl.current) tl.current.seek(scroll.offset * tl.current.duration())
+     if (tl.current) tl.current.seek(scroll.offset * tl.current.duration())
+    
 
-
+  
 /*     let  obj = //state.raycaster.intersectObjects([clone], true)[0] //forEach((obj) => {
 
        /*console.log(JSON.stringify(obj.object.name))
@@ -74,31 +101,70 @@ export function Menu(props) {
     //  })
 
     })
+
+
   useLayoutEffect(() => {
-    tl.current = gsap.timeline(
-       {
-        scrollTrigger: {
-           trigger: groupRef.current,
-            start : 'top top',
-            end: 'bottom bottom', scrub: true
-          }
-        }
-     ) //{defaults: {duration: 0.6, ease: 'power3.inOut'}})
-    tl.current
-      .to( groupRef.current.rotation,
-        {
-          duration: 4,
-          y: -(2*Math.PI ) * 0.3,
-          scub: 1
-         }, 0
-        )
+  
 
-    },[])
+    if (!tl.current) tl.current = gsap.timeline()
+   
+    //  tl.current = {} ;
+   // tl.current.tl3 = gsap.timeline()
+    tl.current.to( groupRef.current.rotation,
+      {
+            duration: 2,
+           y: - Math.PI ,
+         //  scrollTrigger: { trigger: homeRef.current, start: "top top", end: "bottom top", scrub: 1,  markers: true}, ease: "power3.inOut", scub: 1
+  } ) 
+
+  .to( groupRef.current.rotation, {
+    duration: 2,
+    y: + Math.PI / 4
+    }, )
+
+    .to ( groupRef.current.position, {
+    
+      duration: 1,
+      x: -4,
+      y: 0,
+    }, "-=2.5")
+
+    .to( groupRef.current.rotation, {
+      duration: 2,
+      y: - Math.PI/4 ,
+      })
+
+      
+    .to ( groupRef.current.position, {
+    
+      duration: 1,
+      x: +4,
+      y: 0,
+    }, "-=2")
+    .to( groupRef.current.rotation,
+      {
+            duration: 2,
+           y: + Math.PI *0.75 // scroll.page
+//                scrollTrigger: { trigger: "#menu", start: "top top", end: "bottom top", scrub: 1,  markers: true}, ease: "power3.inOut", scub: 1
+  }, )
+  .to ( groupRef.current.position, {
+    
+    duration: 1,
+    x: -4,
+    y: 0,
+  }, "-=2")
+   //t.progress(0)
+    /*})
+    return () => {
+      ctx.revert()
+    }*/
+      
+    }, [tl.current])
 
 
-//    console.log()
+ 
   return (
-    <group ref={groupRef} {...props} dispose={null}  rotation={[0, Math.PI/2 , 0]}>
+    <group ref={groupRef} {...props} dispose={null}  rotation={[0, Math.PI / 2, 0]}>
 
       <ambientLight ref={lightRef} intensity={0.21} />
       <spotLight intensity={1.424} decay={2} color="#ffd49d" position={[-2.774, 2.766, -2.9]} rotation={[-2.056, -0.49, -0.175]} target={nodes.Sun.target}>
