@@ -13,13 +13,9 @@ export default defineConfig({
   base: '/',
   build: {
     outDir: 'dist',
-    commonjsOptions: {
-        include: [/linked-dep/, /node_modules/],
-      },
+  
   },
-  optimizeDeps: {
-    include : ['linked-dep'],
-  },
+
   
 }
 )
