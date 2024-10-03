@@ -153,6 +153,12 @@ export function Menu(props) {
     x: -4,
     y: 0,
   }, "-=2")
+  .to( groupRef.current.rotation,
+    {
+          duration: 2,
+         y: - Math.PI *0.75 // scroll.page
+//                scrollTrigger: { trigger: "#menu", start: "top top", end: "bottom top", scrub: 1,  markers: true}, ease: "power3.inOut", scub: 1
+}, )
    //t.progress(0)
     /*})
     return () => {
