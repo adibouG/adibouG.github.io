@@ -10,7 +10,7 @@ export default defineConfig({
   "./src/assets/**/*.json",
   "./src/assets/**/*.glb",
   ],
-  base: '/dist/',
+  base: '/',
   build: {
     outDir: 'dist',
   
