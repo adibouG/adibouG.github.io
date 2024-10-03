@@ -9,7 +9,30 @@ import { Menu2 } from './MenuScene'
 import { Menu } from './MenuScene2'
 
 
+const Star = ({position}) => {
+  return (
+    <group position={position}>
+<pointLight intensity={5} color="#ffffff"   />
+    <mesh>
+      <sphereGeometry args={[1, 16, 16]} />
+      <meshPhongMaterial color="#ffffff" />
+    </mesh>
+    </group>
+  )
+}
 
+
+
+const makeStars = () => {
+  const stars = []
+  for (let i = 0; i < 100; i++) {
+    const x = (Math.random() - 0.5) * 100
+    const y = (Math.random() - 0.5) * 100
+    const z = (Math.random() - 0.5) * 100
+    stars.push(<Star  position={[x, y, z]} key={`${x},${y},${z}`} />) // [x, y, z])
+  }
+  return stars
+}
 
 const SceneComponent = ({...props}) => {
   
@@ -25,6 +48,8 @@ const SceneComponent = ({...props}) => {
      
       <pointLight intensity={0.5} color="#ffffff" position={[-2, 0, -3.5]}  />
       <pointLight intensity={0.5} color="#99ffbb" position={[2,0, -1.5]}  /> 
+    <Star position={[0, 4, 0]}  />
+    {makeStars()}     
      
       <Menu/>
 <mesh scale={1} position={[0, -1.5, 0]} rotation-x={-Math.PI / 2} receiveShadow>
