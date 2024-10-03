@@ -1,5 +1,6 @@
 {
   "name": "ad_perso_3d",
+  "homepage": "https://adiboug.github.io/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +10,6 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
-
   },
   "dependencies": {
     "@react-three/drei": "^9.114.0",

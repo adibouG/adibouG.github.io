@@ -9,5 +9,17 @@ export default defineConfig({
   "./src/assets/**/*.jpeg",
   "./src/assets/**/*.json",
   "./src/assets/**/*.glb",
-  ]
-})
+  ],
+  base: '/',
+  build: {
+    outDir: 'dist',
+    commonjsOptions: {
+        include: [/linked-dep/, /node_modules/],
+      },
+  },
+  optimizeDeps: {
+    include : ['linked-dep'],
+  },
+  
+}
+)
