@@ -55,6 +55,8 @@ console.log(firstSectionOpacity, secondSectionOpacity)
       <div className='timeLine'></div>
       <div className='time'> 
       <h5 >Software Developer at Enzosystems</h5>
+      <span className='date'> 2019 - 2020</span>
+      <div  className='timeMark'></div>
       </div>
       <div className='time'> 
       <h5 >Software Engineer at Truekinetix</h5>
