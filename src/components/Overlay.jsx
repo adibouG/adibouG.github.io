@@ -2,12 +2,43 @@ import React, {useState} from 'react'
 import { Scroll, useScroll } from '@react-three/drei'
 import Section from './Section'
 import { useFrame } from '@react-three/fiber'
+import { abs } from 'three/webgpu'
 
 const Overlay = props => {
 
   const styles = {
       width: '100vw',
     } 
+
+    const time = {
+      position: 'relative',
+    }
+    const timeline = {
+      position: 'absolute',
+      top: '60px', 
+      right: '-10px',
+      borderLeft: '5px solid white',
+      borderRadius: '5px',
+      height : '40%', // 100vh - height 
+      width: '0px',
+    }
+const date = {
+  position: 'absolute',
+  top: '-0px', 
+  right: '-140px',
+  //borderLeft: '5px solid whuite',
+  color: 'white',
+  
+}
+const mark = {
+  position: 'absolute',
+  height: '4px',
+  width: '25px',
+  borderRadius: '5px',
+  background: 'white',
+  top: '10px',
+  right: '-40px',
+}
 
 const scroll = useScroll()
 const [firstSectionOpacity, setFirstSectionOpacity] = React.useState(1)
@@ -40,9 +71,9 @@ console.log(firstSectionOpacity, secondSectionOpacity)
       <p>
         
       </p>
-      <h3 className='title'>software developer and creative engineering</h3> 
+      <h3 className='title'>software developement and creative engineering</h3> 
     
-      <p className='text'> I can help designing your projects and building your applications, I can help with your ideas and collaborate to your projects</p>
+      <p className='text'> I help designing your projects and building your applications, I can help with your ideas and collaborate to your projects</p>
       </Section>
     <Section right opacity={secondSectionOpacity}> 
     <h2 > About me</h2>
@@ -52,23 +83,29 @@ console.log(firstSectionOpacity, secondSectionOpacity)
     
     <Section opacity={thirdSectionOpacity}> 
       <h2 > Experience </h2>
-      <div className='timeLine'></div>
-      <div className='time'> 
-      <h5 >Software Developer at Enzosystems</h5>
-      <span className='date'> 2019 - 2020</span>
-      <div  className='timeMark'></div>
-      </div>
-      <div className='time'> 
+      <div style={timeline} ></div>
+      <div style={time}> 
       <h5 >Software Engineer at Truekinetix</h5>
+      <span style={date}> 2023 - 2024</span>
+      <div  style={mark} ></div>
       </div>
-      <div className='time'> 
+      <div style={time}>  
       <h5 >Software Engineer at Medis medical imaging systems</h5>
+      <span style={date}> 2021 - 2022</span>
+      <div  style={mark} ></div>
+    
       </div>
-      <div className='time'> 
+      <div style={time}>  
       <h5 >Software Developer at Enzosystems</h5>
+      <span style={date}> 2018 - 2021</span>
+      <div  style={mark} ></div>
+    
       </div>
-      <div className='time'> 
-      <h5 >Functional Analyst at La Poste Mobile</h5>
+      <div style={time}>  
+      <h5 >Analyst Programmer at La Poste Mobile</h5>
+      <span style={date}> 2015 - 2016</span>
+      <div  style={mark} ></div>
+    
       </div>
       
       <div className='time'> 

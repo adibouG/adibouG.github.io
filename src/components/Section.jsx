@@ -33,6 +33,7 @@ const Section = props => {
       backgroundColor: 'rgba(255, 255, 255, 0.5)',
       borderRadius: '2.5em',
       padding: '20px',
+      position: 'relative',
     }
 
   }
