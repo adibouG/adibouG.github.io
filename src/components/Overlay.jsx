@@ -51,7 +51,7 @@ useFrame((state, delta) => {
   setFirstSectionOpacity(1 - scroll.range(0, 1/4))
   setSecondSectionOpacity(scroll.curve(1/4, 1/4))
   setThirdSectionOpacity(scroll.curve(2/4, 1/4))
-  setFourthSectionOpacity(scroll.curve(3/4, 1/4))
+  setFourthSectionOpacity(scroll.range(3/4, 1/4))
 })
 
 console.log(firstSectionOpacity, secondSectionOpacity)
